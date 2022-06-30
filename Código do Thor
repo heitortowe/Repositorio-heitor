@@ -1,0 +1,54 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+ 
+class Player
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int lightX = in.nextInt(); // the X position of the light of power
+        int lightY = in.nextInt(); // the Y position of the light of power
+        int initialTX = in.nextInt(); // Thor's starting X position
+        int initialTY = in.nextInt(); // Thor's starting Y position
+ 
+        while (true)
+        {
+            int remainingTurns = in.nextInt(); // The level of Thor's remaining energy, representing the number of moves he can still make.
+            String direction = "";
+           
+            if (initialTY < lightY)
+            //se a posção inícial do thor for mais baixa que a posição da luz.
+            {
+                initialTY++;
+                direction = "S";
+            }
+            //o thor vai "subir" para para o sul
+ 
+            else if (initialTY > lightY)
+            //se a luz estiver mais alta que a posição do thor
+            {
+                initialTY--;
+                direction = "N";
+            }
+            ///o thor vai para o norte
+           
+            if (initialTX < lightX)
+            //se a luz estiver mais a direita que o thor
+            {
+                initialTX++;
+                direction += "E";
+            }
+            //o thor vai seguir para a o "east"
+           
+            else if (initialTX > lightX)
+            {
+                initialTX--;
+                direction += "W";
+            }
+            // se a luz estiver para a esquerda o thor vai seguir para o "west"
+           
+            System.out.println(direction);
+        }
+    }
+}
